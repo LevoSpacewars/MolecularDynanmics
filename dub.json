@@ -1,0 +1,9 @@
+{
+	"authors": [
+		"awpat"
+	],
+	"copyright": "Copyright © 2021, awpat",
+	"description": "A minimal D application.",
+	"license": "proprietary",
+	"name": "moleculardynanmics"
+}
