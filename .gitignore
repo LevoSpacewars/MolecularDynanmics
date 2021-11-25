@@ -1,0 +1,15 @@
+.dub
+docs.json
+__dummy.html
+docs/
+/moleculardynanmics
+moleculardynanmics.so
+moleculardynanmics.dylib
+moleculardynanmics.dll
+moleculardynanmics.a
+moleculardynanmics.lib
+moleculardynanmics-test-*
+*.exe
+*.o
+*.obj
+*.lst
