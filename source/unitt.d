@@ -19,25 +19,25 @@ class test(T)
 }
 class inter
 {
- 	int v;
-    this(int value)
+ 	float v;
+    this(float value)
     {
         this.v = value;
     }
-    
-    test!int input(test!int t)
-    {
 
-        int[] o;
-        int inside = 0;
-        foreach (ind, element; t.x.enumerate)
+    test!int input(test!float t)
         {
-            inside = element + this.v;
-            writeln(inside);
-            o = o ~ inside;
+
+            int[] o;
+            int inside = 0;
+            foreach (ind, element; t.x.enumerate)
+            {
+                inside = to!int(element/this.v);
+                writeln(inside);
+                o = o ~ inside;
+            }
+            return new test!int(o);
         }
-        return new test!int(o);
-    }
 
 
 }

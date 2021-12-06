@@ -23,15 +23,18 @@ class SimulationBox
 
 
   Vector!int getPosKey(Vector!float position){
-    int[3] npos;
+      int[] npos = [0,0,0];
 
-    foreach (index, value; position.values)
-    {
-      npos[index] = to!int(value / this.interaction_cutoff);
+      foreach (index, value; position.values)
+      {
+        npos[index] = to!int(value / this.interaction_cutoff);
+      }
+      writeln("assigning array: ", npos);
+      auto temp = new Vector!int(npos.dup);
+      writeln("before return: ",temp.values);
+      return temp;
     }
-    auto temp = new Vector!int(npos);
-    writeln(temp.values);
-    return temp;
+
   }
 
   int[3] getPosKey(float[3] position){
