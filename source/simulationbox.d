@@ -1,10 +1,12 @@
-import math : Vector;
-import std.range : enumerate;
+
+import std.range;
 import std.conv;
+import std.stdio;
+import math : Vector;
 class SimulationBox
 {
-  Vector!int dimensions;
-  float interaction_cutoff = 1;
+   Vector!int dimensions;
+   float interaction_cutoff = 1.0f;
 
   this(Vector!int dim,  float interaction_cutoff){
     this.dimensions = dim;
@@ -12,7 +14,7 @@ class SimulationBox
   }
 
   this(int[3] dim,  float interaction_cutoff){
-    this.dimensions = Vector!int(dim);
+    this.dimensions = new Vector!int(dim);
     this.interaction_cutoff = interaction_cutoff;
   }
 
@@ -23,28 +25,22 @@ class SimulationBox
   Vector!int getPosKey(Vector!float position){
     int[3] npos;
 
-    foreach (index, element; position.values.enumerate())
+    foreach (index, value; position.values)
     {
-      npos[index] = (element / this.interaction_cutoff).to!int;
+      npos[index] = to!int(value / this.interaction_cutoff);
     }
-    return Vector!int(npos);
+    auto temp = new Vector!int(npos);
+    writeln(temp.values);
+    return temp;
   }
 
   int[3] getPosKey(float[3] position){
     int[3] npos;
-    foreach (index, element; position.enumerate())
+    foreach (index, value; position)
     {
-      npos[index] = (element / this.interaction_cutoff).to!int;
+      npos[index] = to!int(value / this.interaction_cutoff);
     }
     return npos;
   }
 
-
-
-  unittest
-  {
-    SimulationBox simbox = new SimulationBox([100,100,100],10.0f);
-    auto key = simbox.getPosKey(10.0f, 11.0f, 3.0f);
-    writeln(key)
-  }
 }
