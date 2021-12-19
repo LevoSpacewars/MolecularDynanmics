@@ -8,8 +8,8 @@ auto b = new Vector!int(2,3,4,5);
 v.dot(b);
 writeln(v.prt());
 
-auto dimensions = new Vector!int(10,20,30);
-SimulationBox box = new SimulationBox(dimensions, 1);
+auto dimensions = new Vector!int(100,100,100);
+SimulationBox box = new SimulationBox(dimensions, 0.5);
 
 
 float j =2.5;
